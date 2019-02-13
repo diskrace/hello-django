@@ -14,19 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from blog.views import hello_times
-from blog.views import index, hello_times
-from blog.views import articles_by_year
-from django.urls import register_converter
-from blog.converters import FourDigitYearConverter
+from django.urls import include, path
 
-register_converter(FourDigitYearConverter, 'year')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/hello_times/<int:times>', hello_times),
-    path('articles/<year:year>/', articles_by_year),
-    # re_path(r'blog/hello_times/(?P<times>\d+)/$, hello_times)
-    path('', index),
+    path('blog/', include('blog.urls')),
+    path('shop/', include('shop.urls')),
 ]
