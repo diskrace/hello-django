@@ -1,8 +1,6 @@
-from django.urls import path, re_path
-from shop import views
+from django.urls import path
 
 app_name = 'shop'
 
 urlpatterns = [
-    
 ]
